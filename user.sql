@@ -31,8 +31,12 @@ CREATE TABLE customer (
     role_id INT NOT NULL,
     CONSTRAINT fk_customer_role FOREIGN KEY (role_id) REFERENCES role(roleid)
 );
--- NOT: Tablolar bağımlılık sırasına göre oluşturulmalı: roleauthority → role → customer
  
- 
- 
--- NOT: Tabloların oluşturulma sırası, referans ilişkilerine göre doğru ayarlanmalı
+
+-- GPT Puanı: 90 / 100
+
+-- GPT Önerileri:
+-- 1. roleauthorityname, rolename ve customermail alanlarına NOT NULL eklenmeli.
+-- 2. customerpassword için UNIQUE zorunlu değil, güvenlik açısından kaldırılabilir.
+-- 3. roleauthorityname, rolename ve customermail alanlarına INDEX eklenmesi performans sağlar.
+-- 4. VARCHAR(20) yerine bazı alanlar için VARCHAR(50) daha uygun olabilir.
